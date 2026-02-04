@@ -1,7 +1,7 @@
 # Site Blocker Extension
 
 <p align="center">
-  <img src="icons/icon128.png" alt="Site Blocker Icon" width="128" height="128">
+  <img src="store-assets/icon-300x300.png" alt="Site Blocker Icon" width="128" height="128">
 </p>
 
 <p align="center">
