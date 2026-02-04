@@ -38,13 +38,13 @@
 ## Screenshots
 
 ### Side Panel Interface
-![Main Panel](store-assets/screenshot-1-main-panel.png)
+![Main Panel](store-assets/screenshot-1-overview.png)
 
 ### Fun Blocked Page with Animated Dog
-![Blocked Page](store-assets/screenshot-2-blocked-page.png)
+![Blocked Page](store-assets/screenshot-2-add-sites.png)
 
 ### Feature Overview
-![Features](store-assets/screenshot-3-features.png)
+![Features](store-assets/screenshot-3-toggles.png)
 
 ## Installation
 
