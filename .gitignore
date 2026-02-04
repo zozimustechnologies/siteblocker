@@ -12,5 +12,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Store assets (not needed in extension package)
-store-assets/
+# Store assets - keep PNG files but ignore zip
+store-assets/*.zip
