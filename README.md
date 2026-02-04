@@ -222,7 +222,7 @@ MIT License — Feel free to modify and distribute.
 
 ## Credits
 
-- **Developer**: [Zozimus Technologies](https://zozimus.com)
+- **Developer**: Zozimus Technologies
 - **Icon Design**: Shield with stop sign gradient
 
 ---
