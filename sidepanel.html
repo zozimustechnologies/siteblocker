@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocker</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <a href="https://wise.com/pay/r/wC7Us-4r3knkCCY" target="_blank" class="donate-link" title="Support development">
+        ❤️
+      </a>
+      <div class="header-top">
+        <img src="icons/icon48.svg" alt="Site Blocker" class="logo">
+        <div class="header-text">
+          <h1>Site Blocker</h1>
+          <p class="subtitle">Block distracting websites</p>
+        </div>
+      </div>
+      
+      <!-- Master Toggle -->
+      <div class="master-toggle-container">
+        <span class="master-label">Blocking</span>
+        <label class="toggle-switch master-toggle">
+          <input type="checkbox" id="masterToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span id="masterStatus" class="master-status">ON</span>
+      </div>
+    </header>
+
+    <!-- Add Site Section -->
+    <div class="add-site-section">
+      <div class="input-group">
+        <input 
+          type="text" 
+          id="siteInput" 
+          placeholder="Enter URL (e.g., x.com)"
+          maxlength="253"
+          autocomplete="off"
+        >
+        <button id="addSiteBtn" class="btn-add">
+          <span class="btn-icon">+</span>
+          Add
+        </button>
+      </div>
+      <div id="inputError" class="input-error hidden"></div>
+    </div>
+
+    <!-- Counter -->
+    <div class="counter-section">
+      <span id="siteCounter" class="site-counter">0/100 sites</span>
+    </div>
+
+    <!-- Status Message -->
+    <div id="statusMessage" class="status-message hidden"></div>
+
+    <!-- Blocked Sites List -->
+    <div class="sites-list-container">
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">🛡️</div>
+        <p>No sites blocked yet</p>
+        <p class="empty-hint">Add a domain above to start blocking</p>
+      </div>
+      <ul id="sitesList" class="sites-list hidden"></ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="version">v1.0.0</span>
+      <span class="divider">•</span>
+      <span class="tagline">Stay focused! 🎯</span>
+      <div class="copyright">© <a href="https://github.com/orgs/zozimustechnologies/repositories" target="_blank">Zozimus Technologies</a></div>
+    </footer>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

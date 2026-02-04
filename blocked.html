@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocked! 🐕</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 10;
+      padding: 20px;
+    }
+
+    .block-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .message {
+      font-size: 20px;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .submessage {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    .go-back-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .go-back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Dog Licking Animation Container */
+    .dog-container {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    /* Animated Dog */
+    .dog {
+      width: 300px;
+      animation: dogPop 0.5s ease-out;
+    }
+
+    @keyframes dogPop {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Licking Tongue */
+    .tongue-container {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tongue {
+      width: 80px;
+      height: 120px;
+      background: linear-gradient(180deg, #ff6b9d 0%, #ff4081 100%);
+      border-radius: 40px 40px 50px 50px;
+      animation: lick 0.8s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes lick {
+      0%, 100% { 
+        transform: scaleY(0.3) translateY(40px);
+        opacity: 0.8;
+      }
+      50% { 
+        transform: scaleY(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Drool drops */
+    .drool {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: drip 2s ease-in infinite;
+    }
+
+    .drool:nth-child(1) {
+      left: 30%;
+      animation-delay: 0s;
+    }
+
+    .drool:nth-child(2) {
+      left: 50%;
+      animation-delay: 0.5s;
+    }
+
+    .drool:nth-child(3) {
+      left: 70%;
+      animation-delay: 1s;
+    }
+
+    @keyframes drip {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Lick marks on screen */
+    .lick-marks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .lick-mark {
+      position: absolute;
+      width: 150px;
+      height: 200px;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+
+    .lick-mark:nth-child(1) {
+      top: 20%;
+      left: 30%;
+      animation-delay: 0s;
+    }
+
+    .lick-mark:nth-child(2) {
+      top: 40%;
+      left: 60%;
+      animation-delay: 1s;
+    }
+
+    .lick-mark:nth-child(3) {
+      top: 60%;
+      left: 25%;
+      animation-delay: 2s;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    /* Fun floating paw prints */
+    .paw-prints {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .paw {
+      position: absolute;
+      font-size: 30px;
+      opacity: 0.2;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .paw:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .paw:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
+    .paw:nth-child(3) { top: 50%; left: 5%; animation-delay: 2s; }
+    .paw:nth-child(4) { top: 70%; left: 85%; animation-delay: 3s; }
+    .paw:nth-child(5) { top: 85%; left: 15%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* Productivity counter */
+    .productivity {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .productivity span {
+      font-weight: bold;
+      color: #ffd700;
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating paw prints background -->
+  <div class="paw-prints">
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+  </div>
+
+  <!-- Lick marks on screen -->
+  <div class="lick-marks">
+    <div class="lick-mark"></div>
+    <div class="lick-mark"></div>
+    <div class="lick-mark"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="block-icon">🚫</div>
+    <h1>Site Blocked!</h1>
+    <p class="message">This website has been blocked</p>
+    <p class="submessage">Your productivity thanks you! 🎯</p>
+    
+    <button id="goBackBtn" class="go-back-btn">← Go Back</button>
+    
+    <p class="productivity">
+      Stay focused! Every blocked visit is a win. <span>🏆</span>
+    </p>
+  </div>
+
+  <!-- Dog licking the screen -->
+  <div class="dog-container">
+    <div class="tongue-container">
+      <div class="tongue"></div>
+      <div class="drool"></div>
+      <div class="drool"></div>
+      <div class="drool"></div>
+    </div>
+    
+    <!-- SVG Dog Face -->
+    <svg class="dog" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ears -->
+      <ellipse cx="35" cy="40" rx="30" ry="45" fill="#8B4513" transform="rotate(-20 35 40)"/>
+      <ellipse cx="165" cy="40" rx="30" ry="45" fill="#8B4513" transform="rotate(20 165 40)"/>
+      <ellipse cx="35" cy="45" rx="20" ry="35" fill="#D2691E" transform="rotate(-20 35 45)"/>
+      <ellipse cx="165" cy="45" rx="20" ry="35" fill="#D2691E" transform="rotate(20 165 45)"/>
+      
+      <!-- Head -->
+      <ellipse cx="100" cy="85" rx="75" ry="65" fill="#D2691E"/>
+      
+      <!-- Face patch -->
+      <ellipse cx="100" cy="100" rx="45" ry="40" fill="#F5DEB3"/>
+      
+      <!-- Eyes -->
+      <ellipse cx="70" cy="70" rx="18" ry="20" fill="white"/>
+      <ellipse cx="130" cy="70" rx="18" ry="20" fill="white"/>
+      <circle cx="72" cy="72" r="10" fill="#2C1810"/>
+      <circle cx="132" cy="72" r="10" fill="#2C1810"/>
+      <circle cx="75" cy="68" r="4" fill="white"/>
+      <circle cx="135" cy="68" r="4" fill="white"/>
+      
+      <!-- Eyebrows (happy) -->
+      <path d="M55 55 Q70 48 85 55" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M115 55 Q130 48 145 55" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
+      
+      <!-- Nose -->
+      <ellipse cx="100" cy="100" rx="15" ry="12" fill="#2C1810"/>
+      <ellipse cx="100" cy="97" rx="6" ry="4" fill="#5a4035"/>
+      
+      <!-- Mouth (happy, tongue out position) -->
+      <path d="M70 115 Q100 140 130 115" stroke="#2C1810" stroke-width="3" fill="none" stroke-linecap="round"/>
+      
+      <!-- Cheeks -->
+      <circle cx="50" cy="95" r="12" fill="#FFB6C1" opacity="0.5"/>
+      <circle cx="150" cy="95" r="12" fill="#FFB6C1" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <script src="blocked.js"></script>
+</body>
+</html>

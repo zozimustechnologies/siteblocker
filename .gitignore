@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Store assets (not needed in extension package)
+store-assets/

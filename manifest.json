@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Site Blocker",
+  "version": "1.0.0",
+  "description": "Block distracting websites to boost your productivity. Manage up to 100 sites with easy toggle controls.",
+  "author": "Zozimus Technologies",
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg"
+    },
+    "default_title": "Open Site Blocker"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "blocked.js", "icons/icon128.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
