@@ -360,6 +360,13 @@ body {
 .empty-icon {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-icon svg {
+  filter: drop-shadow(0 2px 6px rgba(26, 74, 110, 0.25));
 }
 
 .empty-state p {

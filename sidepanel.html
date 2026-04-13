@@ -80,7 +80,28 @@
     <!-- Blocked Sites List -->
     <div class="sites-list-container">
       <div id="emptyState" class="empty-state">
-        <div class="empty-icon">🛡️</div>
+        <div class="empty-icon">
+          <svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left half of cracked shield -->
+            <path d="M32 4L6 16v20c0 16 11 28 26 32V40l-4-6 3-8-5-7 4-9V4z" fill="url(#shieldGradL)" opacity="0.85"/>
+            <!-- Right half of cracked shield (offset) -->
+            <path d="M32 4l26 12v20c0 16-11 28-26 32V40l4-6-3-8 5-7-4-9V4z" fill="url(#shieldGradR)" opacity="0.65" transform="translate(1.5,2)"/>
+            <!-- Crack line -->
+            <path d="M32 6 L30 15 L35 22 L29 30 L34 38 L32 48 L31 58" stroke="#1a2e3d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/>
+            <!-- Lightning bolt accent in crack -->
+            <path d="M33 18 L28 28 L33 27 L29 37" stroke="#5ba3c9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <defs>
+              <linearGradient id="shieldGradL" x1="6" y1="4" x2="32" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#3d7ea6"/>
+                <stop offset="100%" stop-color="#1a4a6e"/>
+              </linearGradient>
+              <linearGradient id="shieldGradR" x1="32" y1="4" x2="58" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#5ba3c9"/>
+                <stop offset="100%" stop-color="#2b5a7e"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <p>No sites blocked yet</p>
         <p class="empty-hint">Add a domain above to start blocking</p>
       </div>

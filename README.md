@@ -178,9 +178,9 @@ siteblocker/
 ├── sidepanel.html         # Side panel UI structure
 ├── sidepanel.js           # Side panel logic (includes math challenge)
 ├── sidepanel.css          # Side panel styles
-├── options.html           # Settings page structure
-├── options.js             # Settings page logic
-├── options.css            # Settings page styles
+├── settings.html          # Settings page structure
+├── settings.js            # Settings page logic
+├── settings.css           # Settings page styles
 ├── blocked.html           # Blocked page
 ├── blocked.js             # Blocked page script (close tab)
 ├── icons/
@@ -208,7 +208,7 @@ siteblocker/
 
 ```bash
 # PowerShell
-Compress-Archive -Path manifest.json, background.js, sidepanel.html, sidepanel.js, sidepanel.css, options.html, options.js, options.css, blocked.html, blocked.js, icons -DestinationPath site-blocker-extension.zip
+Compress-Archive -Path manifest.json, background.js, sidepanel.html, sidepanel.js, sidepanel.css, settings.html, settings.js, settings.css, blocked.html, blocked.js, icons -DestinationPath site-blocker-extension.zip
 ```
 
 ### API Reference

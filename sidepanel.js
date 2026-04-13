@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Settings link - always available regardless of challenge state
   const settingsLink = document.getElementById('settingsLink');
   settingsLink.addEventListener('click', () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL('options.html') });
+    chrome.tabs.create({ url: chrome.runtime.getURL('settings.html') });
   });
 
   // Check if challenge is needed (only if sites are already blocked AND setting is enabled)
