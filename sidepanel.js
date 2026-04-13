@@ -76,9 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   challengeNewQuestion.addEventListener('click', showChallenge);
 
-  // Check if challenge is needed (only if sites are already blocked)
+  // Settings link - always available regardless of challenge state
+  const settingsLink = document.getElementById('settingsLink');
+  settingsLink.addEventListener('click', () => {
+    chrome.tabs.create({ url: chrome.runtime.getURL('options.html') });
+  });
+
+  // Check if challenge is needed (only if sites are already blocked AND setting is enabled)
   async function checkChallenge() {
     try {
+      const settings = await chrome.storage.local.get(['mathChallengeEnabled']);
+      const mathEnabled = settings.mathChallengeEnabled !== false; // default true
+
+      if (!mathEnabled) {
+        initMainUI();
+        return;
+      }
+
       const response = await chrome.runtime.sendMessage({ action: 'getSites' });
       if (response.success && response.blockedSites.length > 0) {
         showChallenge();
