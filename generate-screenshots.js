@@ -13,10 +13,10 @@ const BLUE_1 = '#3d7ea6';
 const BLUE_2 = '#1a4a6e';
 const GRADIENT = `linear-gradient(135deg, ${BLUE_1} 0%, ${BLUE_2} 100%)`;
 
-// Shared CSS for side panel mockups
+// Shared CSS for side panel mockups (used inside the panel iframe area)
 const panelCSS = `
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:${GRADIENT}; color:#333; width:${SIDE_PANEL_WIDTH}px; height:${SIDE_PANEL_HEIGHT}px; overflow:hidden; }
+  body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:${GRADIENT}; color:#333; width:100%; height:100%; overflow:hidden; }
   .container { padding:16px; display:flex; flex-direction:column; height:100%; }
   .header { background:#fff; border-radius:16px; padding:16px; margin-bottom:16px; box-shadow:0 4px 20px rgba(0,0,0,0.15); position:relative; }
   .donate-link { position:absolute; top:12px; right:12px; font-size:11px; font-weight:600; text-decoration:none; color:#fff; background:#c0392b; padding:4px 8px; border-radius:6px; }
@@ -59,8 +59,8 @@ const panelCSS = `
   .copyright a { color:inherit; text-decoration:none; }
 `;
 
-// Screenshot 1: Overview - empty state
-const screenshot1HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${panelCSS}</style></head><body>
+// Screenshot 1: Overview - empty state (panel body content)
+const panel1Body = `
 <div class="container">
   <header class="header">
     <a class="donate-link">Donate</a>
@@ -90,13 +90,11 @@ const screenshot1HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style
     </div>
   </div>
   <footer class="footer"><span>v1.1.0</span><span class="divider">•</span><span>Stay focused! 🎯</span><div class="copyright">© Zozimus Technologies</div></footer>
-</div>
-</body></html>`;
+</div>`;
+const screenshot1HTML = wrapInBrowserFrame(panel1Body);
 
 // Screenshot 2: Add sites - showing input with a typed domain
-const screenshot2HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${panelCSS}
-  .input-group input.filled { border-color:${BLUE_1}; box-shadow:0 0 0 3px rgba(61,126,166,0.2); }
-</style></head><body>
+const panel2Body = `
 <div class="container">
   <header class="header">
     <a class="donate-link">Donate</a>
@@ -125,13 +123,11 @@ const screenshot2HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style
     <div class="site-item"><span class="site-domain">reddit.com</span><div class="site-actions"><label class="toggle-switch site-toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label><button class="btn-delete">×</button></div></div>
   </div>
   <footer class="footer"><span>v1.1.0</span><span class="divider">•</span><span>Stay focused! 🎯</span><div class="copyright">© Zozimus Technologies</div></footer>
-</div>
-</body></html>`;
+</div>`;
+const screenshot2HTML = wrapInBrowserFrame(panel2Body, `.input-group input.filled { border-color:${BLUE_1}; box-shadow:0 0 0 3px rgba(61,126,166,0.2); }`);
 
 // Screenshot 3: Toggles - mixed enabled/disabled states
-const screenshot3HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>${panelCSS}
-  .site-item.disabled { opacity:0.5; }
-</style></head><body>
+const panel3Body = `
 <div class="container">
   <header class="header">
     <a class="donate-link">Donate</a>
@@ -161,8 +157,8 @@ const screenshot3HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style
     <div class="site-item disabled"><span class="site-domain">youtube.com</span><div class="site-actions"><label class="toggle-switch site-toggle"><input type="checkbox"><span class="toggle-slider"></span></label><button class="btn-delete">×</button></div></div>
   </div>
   <footer class="footer"><span>v1.1.0</span><span class="divider">•</span><span>Stay focused! 🎯</span><div class="copyright">© Zozimus Technologies</div></footer>
-</div>
-</body></html>`;
+</div>`;
+const screenshot3HTML = wrapInBrowserFrame(panel3Body, `.site-item.disabled { opacity:0.5; }`);
 
 // Screenshot 4: Blocked page
 const screenshot4HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
@@ -188,9 +184,21 @@ const screenshot4HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style
 </body></html>`;
 
 // Screenshot 5: Math challenge
-const screenshot5HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:${GRADIENT}; width:${SIDE_PANEL_WIDTH}px; height:${SIDE_PANEL_HEIGHT}px; display:flex; align-items:center; justify-content:center; padding:16px; }
+const panel5Body = `
+<div style="display:flex;align-items:center;justify-content:center;height:100%;padding:16px;">
+  <div class="challenge-card">
+    <div class="challenge-icon">🔒</div>
+    <h2 class="challenge-title">Solve to Access</h2>
+    <p class="challenge-subtitle">Answer the question to manage your blocklist</p>
+    <p class="challenge-question">What is 7 × 8?</p>
+    <div class="challenge-input-group">
+      <input type="text" placeholder="Your answer">
+      <button class="btn-challenge">Unlock</button>
+    </div>
+    <button class="btn-new-question">Different question</button>
+  </div>
+</div>`;
+const screenshot5HTML = wrapInBrowserFrame(panel5Body, `
   .challenge-card { background:#fff; border-radius:16px; padding:24px; width:100%; max-width:352px; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.2); }
   .challenge-icon { font-size:40px; margin-bottom:8px; }
   .challenge-title { font-size:18px; font-weight:700; color:#1a2e3d; margin-bottom:4px; }
@@ -200,19 +208,7 @@ const screenshot5HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style
   .challenge-input-group input { flex:1; padding:10px 12px; border:2px solid #e0e0e0; border-radius:8px; font-size:16px; text-align:center; outline:none; }
   .btn-challenge { padding:10px 16px; background:${GRADIENT}; color:#fff; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; white-space:nowrap; }
   .btn-new-question { background:none; border:none; color:${BLUE_1}; font-size:12px; cursor:pointer; text-decoration:underline; }
-</style></head><body>
-<div class="challenge-card">
-  <div class="challenge-icon">🔒</div>
-  <h2 class="challenge-title">Solve to Access</h2>
-  <p class="challenge-subtitle">Answer the question to manage your blocklist</p>
-  <p class="challenge-question">What is 7 × 8?</p>
-  <div class="challenge-input-group">
-    <input type="text" placeholder="Your answer">
-    <button class="btn-challenge">Unlock</button>
-  </div>
-  <button class="btn-new-question">Different question</button>
-</div>
-</body></html>`;
+`);
 
 // Screenshot 6: Settings page
 const screenshot6HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
@@ -304,12 +300,69 @@ const icon300HTML = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 </div>
 </body></html>`;
 
+// Wrap side panel HTML inside a 1280x800 browser mockup with the panel on the right
+function wrapInBrowserFrame(panelBodyHTML, panelExtraCSS) {
+  const extraCSS = panelExtraCSS || '';
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; width:1280px; height:800px; overflow:hidden; background:#1e1e1e; }
+  .browser-frame { display:flex; flex-direction:column; height:100%; }
+  .title-bar { height:40px; background:#2d2d2d; display:flex; align-items:center; padding:0 12px; gap:10px; }
+  .tab { display:flex; align-items:center; gap:6px; background:#3c3c3c; padding:6px 16px; border-radius:8px 8px 0 0; margin-top:6px; }
+  .tab-dot { width:8px; height:8px; background:#4a9; border-radius:50%; }
+  .tab-label { color:#ccc; font-size:12px; }
+  .traffic-lights { display:flex; gap:6px; margin-left:auto; }
+  .traffic-lights span { width:12px; height:12px; border-radius:50%; }
+  .tl-close { background:#ff5f57; }
+  .tl-min { background:#ffbd2e; }
+  .tl-max { background:#28c940; }
+  .toolbar { height:36px; background:#2d2d2d; display:flex; align-items:center; padding:0 12px; gap:8px; border-bottom:1px solid #444; }
+  .nav-btn { color:#999; font-size:16px; cursor:default; }
+  .url-bar { flex:1; background:#3c3c3c; border:none; border-radius:6px; padding:5px 12px; color:#ccc; font-size:12px; }
+  .content-area { flex:1; display:flex; overflow:hidden; }
+  .main-page { flex:1; background:#f5f5f5; display:flex; align-items:center; justify-content:center; }
+  .main-page-content { text-align:center; color:#bbb; }
+  .main-page-content .icon { font-size:48px; margin-bottom:12px; opacity:0.4; }
+  .main-page-content p { font-size:14px; opacity:0.6; }
+  .panel-divider { width:1px; background:#444; }
+  .side-panel { width:400px; height:100%; overflow:hidden; }
+  .side-panel-inner { width:100%; height:100%; background:${GRADIENT}; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; color:#333; overflow:hidden; }
+  ${panelCSS}
+  ${extraCSS}
+  </style></head><body>
+  <div class="browser-frame">
+    <div class="title-bar">
+      <div class="tab"><span class="tab-dot"></span><span class="tab-label">New Tab</span></div>
+      <div class="traffic-lights"><span class="tl-min"></span><span class="tl-max"></span><span class="tl-close"></span></div>
+    </div>
+    <div class="toolbar">
+      <span class="nav-btn">←</span><span class="nav-btn">→</span><span class="nav-btn">↻</span>
+      <input class="url-bar" value="edge://newtab" readonly>
+    </div>
+    <div class="content-area">
+      <div class="main-page">
+        <div class="main-page-content">
+          <div class="icon">🌐</div>
+          <p>New Tab</p>
+        </div>
+      </div>
+      <div class="panel-divider"></div>
+      <div class="side-panel">
+        <div class="side-panel-inner">
+          ${panelBodyHTML}
+        </div>
+      </div>
+    </div>
+  </div>
+  </body></html>`;
+}
+
 const screenshots = [
-  { name: 'screenshot-1-overview.png', html: screenshot1HTML, width: SIDE_PANEL_WIDTH, height: SIDE_PANEL_HEIGHT },
-  { name: 'screenshot-2-add-sites.png', html: screenshot2HTML, width: SIDE_PANEL_WIDTH, height: SIDE_PANEL_HEIGHT },
-  { name: 'screenshot-3-toggles.png', html: screenshot3HTML, width: SIDE_PANEL_WIDTH, height: SIDE_PANEL_HEIGHT },
+  { name: 'screenshot-1-overview.png', html: screenshot1HTML, width: SCREENSHOT_WIDTH, height: SCREENSHOT_HEIGHT },
+  { name: 'screenshot-2-add-sites.png', html: screenshot2HTML, width: SCREENSHOT_WIDTH, height: SCREENSHOT_HEIGHT },
+  { name: 'screenshot-3-toggles.png', html: screenshot3HTML, width: SCREENSHOT_WIDTH, height: SCREENSHOT_HEIGHT },
   { name: 'screenshot-4-blocked.png', html: screenshot4HTML, width: SCREENSHOT_WIDTH, height: SCREENSHOT_HEIGHT },
-  { name: 'screenshot-5-features.png', html: screenshot5HTML, width: SIDE_PANEL_WIDTH, height: SIDE_PANEL_HEIGHT },
+  { name: 'screenshot-5-features.png', html: screenshot5HTML, width: SCREENSHOT_WIDTH, height: SCREENSHOT_HEIGHT },
   { name: 'screenshot-6-privacy.png', html: screenshot6HTML, width: SCREENSHOT_WIDTH, height: SCREENSHOT_HEIGHT },
   { name: 'promo-440x280.png', html: promo440HTML, width: 440, height: 280 },
   { name: 'promo-1400x560.png', html: promo1400HTML, width: 1400, height: 560 },
