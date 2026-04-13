@@ -500,3 +500,115 @@ body {
 .hidden {
   display: none !important;
 }
+
+/* Math Challenge Gate */
+.challenge-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3d7ea6 0%, #1a4a6e 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.challenge-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 22rem;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a2e3d;
+  margin-bottom: 0.25rem;
+}
+
+.challenge-subtitle {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.challenge-question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a4a6e;
+  background: #f0f6fa;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.challenge-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.challenge-input-group input {
+  flex: 1;
+  padding: 0.625rem 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  text-align: center;
+}
+
+.challenge-input-group input:focus {
+  border-color: #3d7ea6;
+  box-shadow: 0 0 0 3px rgba(61, 126, 166, 0.2);
+}
+
+.btn-challenge {
+  padding: 0.625rem 1rem;
+  background: linear-gradient(135deg, #3d7ea6 0%, #1a4a6e 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.btn-challenge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(61, 126, 166, 0.4);
+}
+
+.challenge-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.btn-new-question {
+  background: none;
+  border: none;
+  color: #3d7ea6;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-new-question:hover {
+  color: #1a4a6e;
+}

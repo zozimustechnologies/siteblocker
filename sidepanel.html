@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="sidepanel.css">
 </head>
 <body>
+  <!-- Math Challenge Gate (child safety) -->
+  <div id="challengeOverlay" class="challenge-overlay hidden">
+    <div class="challenge-card">
+      <div class="challenge-icon">🔒</div>
+      <h2 class="challenge-title">Solve to Access</h2>
+      <p class="challenge-subtitle">Answer the question to manage your blocklist</p>
+      <p id="challengeQuestion" class="challenge-question"></p>
+      <div class="challenge-input-group">
+        <input type="number" id="challengeAnswer" placeholder="Your answer" autocomplete="off">
+        <button id="challengeSubmit" class="btn-challenge">Unlock</button>
+      </div>
+      <p id="challengeError" class="challenge-error hidden">Incorrect — try again</p>
+      <button id="challengeNewQuestion" class="btn-new-question">Different question</button>
+    </div>
+  </div>
+
   <div class="container">
     <!-- Header -->
     <header class="header">
