@@ -62,6 +62,22 @@ body {
   opacity: 0.85;
 }
 
+.settings-link {
+  position: absolute;
+  top: 0.75rem;
+  right: 4.5rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.settings-link:hover {
+  transform: rotate(90deg);
+}
+
 .header-top {
   display: flex;
   align-items: center;

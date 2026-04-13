@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocker Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="settings-container">
+    <header class="settings-header">
+      <img src="icons/icon48.png" alt="Site Blocker" class="settings-logo">
+      <div>
+        <h1>Settings</h1>
+        <p class="settings-subtitle">Site Blocker</p>
+      </div>
+    </header>
+
+    <section class="settings-section">
+      <h2 class="section-title">Child Safety</h2>
+
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Math challenge on open</span>
+          <span class="setting-description">Require solving a math question before accessing the blocklist</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="mathChallengeToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <div id="settingsStatus" class="settings-status hidden"></div>
+
+    <footer class="settings-footer">
+      <span>v1.1.0</span>
+      <span class="divider">•</span>
+      <span>© <a href="https://github.com/zozimustechnologies/" target="_blank">Zozimus Technologies</a></span>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
