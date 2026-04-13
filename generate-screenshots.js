@@ -321,7 +321,7 @@ const screenshots = [
 
   for (const shot of screenshots) {
     const page = await browser.newPage();
-    await page.setViewport({ width: shot.width, height: shot.height, deviceScaleFactor: 2 });
+    await page.setViewport({ width: shot.width, height: shot.height, deviceScaleFactor: 1 });
     await page.setContent(shot.html, { waitUntil: 'load' });
     await new Promise(r => setTimeout(r, 300));
     const outPath = path.join(STORE_ASSETS, shot.name);
