@@ -150,11 +150,6 @@ The extension uses Chrome's `declarativeNetRequest` API (Manifest V3) to efficie
 - ✅ Try refreshing the page after adding a site
 - ✅ Make sure you entered just the domain (e.g., `facebook.com` not `https://www.facebook.com/page`)
 
-### Extension not loading
-- ✅ Ensure **Developer mode** is enabled in `edge://extensions/`
-- ✅ Try clicking **Reload** on the extension card
-- ✅ Check for errors by clicking "Inspect views: service worker"
-
 ### Side panel not opening
 - ✅ Click the extension icon in the toolbar (not the puzzle piece menu)
 - ✅ If pinned, make sure you're clicking the Site Blocker icon (shield with stop sign)
@@ -198,17 +193,6 @@ siteblocker/
 │   ├── screenshot-5-features.png
 │   └── screenshot-6-privacy.png
 └── README.md
-```
-
-### Building for Production
-
-1. Ensure all icons are in PNG format
-2. Update version in `manifest.json`
-3. Create ZIP file excluding development files:
-
-```bash
-# PowerShell
-Compress-Archive -Path manifest.json, background.js, sidepanel.html, sidepanel.js, sidepanel.css, options.html, options.js, options.css, blocked.html, blocked.js, icons -DestinationPath site-blocker-extension.zip
 ```
 
 ### API Reference
