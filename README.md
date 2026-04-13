@@ -60,19 +60,9 @@
 ## Installation
 
 ### From Edge Add-ons Store (Recommended)
-1. Visit the [Site Blocker page on Edge Add-ons](https://microsoftedge.microsoft.com/addons/)
+1. Visit the [Site Blocker page on Edge Add-ons](https://microsoftedge.microsoft.com/addons/search?developer=Zozimus%20Technologies)
 2. Click **Get** to install
 3. Pin the extension to your toolbar for easy access
-
-### Load Unpacked (Developer Mode)
-
-1. Download or clone this repository
-2. Open Microsoft Edge
-3. Navigate to `edge://extensions/`
-4. Enable **Developer mode** (toggle in the left sidebar)
-5. Click **Load unpacked**
-6. Select the project folder
-7. Pin the extension to your toolbar for easy access
 
 ## Usage
 
