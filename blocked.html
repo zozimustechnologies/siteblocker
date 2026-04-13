@@ -79,58 +79,8 @@
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     }
 
-    /* Dog Licking Animation Container */
-    .dog-container {
-      position: fixed;
-      bottom: 0;
-      right: 10px;
-      z-index: 100;
-      pointer-events: none;
-    }
-
-    /* Animated Dog */
-    .dog {
-      width: 100px;
-      animation: dogPop 0.5s ease-out;
-    }
-
-    @keyframes dogPop {
-      0% { transform: translateY(100%); }
-      100% { transform: translateY(0); }
-    }
 
 
-
-
-
-    /* Fun floating paw prints */
-    .paw-prints {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .paw {
-      position: absolute;
-      font-size: 30px;
-      opacity: 0.2;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .paw:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-    .paw:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
-    .paw:nth-child(3) { top: 50%; left: 5%; animation-delay: 2s; }
-    .paw:nth-child(4) { top: 70%; left: 85%; animation-delay: 3s; }
-    .paw:nth-child(5) { top: 85%; left: 15%; animation-delay: 4s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(10deg); }
-    }
 
     /* Productivity counter */
     .productivity {
@@ -146,15 +96,6 @@
   </style>
 </head>
 <body>
-  <!-- Floating paw prints background -->
-  <div class="paw-prints">
-    <div class="paw">🐾</div>
-    <div class="paw">🐾</div>
-    <div class="paw">🐾</div>
-    <div class="paw">🐾</div>
-    <div class="paw">🐾</div>
-  </div>
-
   <!-- Main content -->
   <div class="container">
     <div class="block-icon">🚫</div>
@@ -162,52 +103,11 @@
     <p class="message">This website has been blocked</p>
     <p class="submessage">Your productivity thanks you! 🎯</p>
     
-    <button id="goBackBtn" class="go-back-btn">← Go Back</button>
+    <button id="goBackBtn" class="go-back-btn">✕ Close Tab</button>
     
     <p class="productivity">
       Stay focused! Every blocked visit is a win. <span>🏆</span>
     </p>
-  </div>
-
-  <!-- Dog licking the screen -->
-  <div class="dog-container">
-    <!-- SVG Dog Face -->
-    <svg class="dog" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-      <!-- Ears -->
-      <ellipse cx="35" cy="40" rx="30" ry="45" fill="#8B4513" transform="rotate(-20 35 40)"/>
-      <ellipse cx="165" cy="40" rx="30" ry="45" fill="#8B4513" transform="rotate(20 165 40)"/>
-      <ellipse cx="35" cy="45" rx="20" ry="35" fill="#D2691E" transform="rotate(-20 35 45)"/>
-      <ellipse cx="165" cy="45" rx="20" ry="35" fill="#D2691E" transform="rotate(20 165 45)"/>
-      
-      <!-- Head -->
-      <ellipse cx="100" cy="85" rx="75" ry="65" fill="#D2691E"/>
-      
-      <!-- Face patch -->
-      <ellipse cx="100" cy="100" rx="45" ry="40" fill="#F5DEB3"/>
-      
-      <!-- Eyes -->
-      <ellipse cx="70" cy="70" rx="18" ry="20" fill="white"/>
-      <ellipse cx="130" cy="70" rx="18" ry="20" fill="white"/>
-      <circle cx="72" cy="72" r="10" fill="#2C1810"/>
-      <circle cx="132" cy="72" r="10" fill="#2C1810"/>
-      <circle cx="75" cy="68" r="4" fill="white"/>
-      <circle cx="135" cy="68" r="4" fill="white"/>
-      
-      <!-- Eyebrows (happy) -->
-      <path d="M55 55 Q70 48 85 55" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M115 55 Q130 48 145 55" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round"/>
-      
-      <!-- Nose -->
-      <ellipse cx="100" cy="100" rx="15" ry="12" fill="#2C1810"/>
-      <ellipse cx="100" cy="97" rx="6" ry="4" fill="#5a4035"/>
-      
-      <!-- Mouth (happy, tongue out position) -->
-      <path d="M70 115 Q100 140 130 115" stroke="#2C1810" stroke-width="3" fill="none" stroke-linecap="round"/>
-      
-      <!-- Cheeks -->
-      <circle cx="50" cy="95" r="12" fill="#FFB6C1" opacity="0.5"/>
-      <circle cx="150" cy="95" r="12" fill="#FFB6C1" opacity="0.5"/>
-    </svg>
   </div>
 
   <script src="blocked.js"></script>
