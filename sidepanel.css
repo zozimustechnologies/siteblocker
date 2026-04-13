@@ -49,14 +49,17 @@ body {
   font-size: 0.7rem;
   font-weight: 600;
   text-decoration: none;
-  color: #3d7ea6;
+  color: #fff;
+  background: #c0392b;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
   transition: opacity 0.2s;
   display: block;
   z-index: 1;
 }
 
 .donate-link:hover {
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .header-top {
