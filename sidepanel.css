@@ -568,6 +568,13 @@ body {
   font-size: 1rem;
   outline: none;
   text-align: center;
+  -moz-appearance: textfield;
+}
+
+.challenge-input-group input::-webkit-outer-spin-button,
+.challenge-input-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .challenge-input-group input:focus {

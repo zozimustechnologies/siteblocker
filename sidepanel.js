@@ -12,56 +12,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Current challenge state
   let currentAnswer = null;
 
-  // Math question generators
+  // Math question generators (kept accessible for most adults)
   function generateChallenge() {
     const generators = [
-      // Square root questions
+      // Easy multiplication
       () => {
-        const squares = [4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256];
-        const n = squares[Math.floor(Math.random() * squares.length)];
-        return { question: `What is the square root of ${n}?`, answer: Math.sqrt(n) };
-      },
-      // Solve for x: x + a = b
-      () => {
-        const a = Math.floor(Math.random() * 40) + 5;
-        const x = Math.floor(Math.random() * 50) + 10;
-        return { question: `Solve for x: x + ${a} = ${x + a}`, answer: x };
-      },
-      // Solve for x: x - a = b
-      () => {
-        const a = Math.floor(Math.random() * 30) + 5;
-        const x = Math.floor(Math.random() * 50) + 35;
-        return { question: `Solve for x: x \u2212 ${a} = ${x - a}`, answer: x };
-      },
-      // Multiplication
-      () => {
-        const a = Math.floor(Math.random() * 8) + 6;
-        const b = Math.floor(Math.random() * 8) + 6;
+        const a = Math.floor(Math.random() * 6) + 3;
+        const b = Math.floor(Math.random() * 6) + 3;
         return { question: `What is ${a} \u00d7 ${b}?`, answer: a * b };
       },
-      // Solve for x: a * x = b
+      // Easy division
       () => {
-        const a = Math.floor(Math.random() * 8) + 3;
-        const x = Math.floor(Math.random() * 12) + 3;
-        return { question: `Solve for x: ${a}x = ${a * x}`, answer: x };
-      },
-      // Division
-      () => {
-        const b = Math.floor(Math.random() * 10) + 3;
-        const result = Math.floor(Math.random() * 12) + 3;
+        const b = Math.floor(Math.random() * 6) + 2;
+        const result = Math.floor(Math.random() * 8) + 2;
         return { question: `What is ${b * result} \u00f7 ${b}?`, answer: result };
       },
-      // Percentage
+      // Solve for x: x + a = b (small numbers)
       () => {
-        const pcts = [10, 20, 25, 50];
-        const pct = pcts[Math.floor(Math.random() * pcts.length)];
-        const base = (Math.floor(Math.random() * 10) + 2) * (100 / pct);
-        return { question: `What is ${pct}% of ${base}?`, answer: (pct / 100) * base };
+        const a = Math.floor(Math.random() * 15) + 3;
+        const x = Math.floor(Math.random() * 20) + 5;
+        return { question: `Solve for x: x + ${a} = ${x + a}`, answer: x };
       },
-      // Exponents
+      // Square root of easy perfect squares
       () => {
-        const base = Math.floor(Math.random() * 8) + 2;
-        return { question: `What is ${base}\u00b2?`, answer: base * base };
+        const squares = [4, 9, 16, 25, 36, 49, 64, 100];
+        const n = squares[Math.floor(Math.random() * squares.length)];
+        return { question: `What is the square root of ${n}?`, answer: Math.sqrt(n) };
       }
     ];
     const gen = generators[Math.floor(Math.random() * generators.length)];
