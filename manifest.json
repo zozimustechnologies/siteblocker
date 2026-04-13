@@ -5,14 +5,14 @@
   "description": "Block distracting websites to boost your productivity. Manage up to 100 sites with easy toggle controls.",
   "author": "Zozimus Technologies",
   "icons": {
-    "16": "icons/icon16.svg",
-    "48": "icons/icon48.svg",
-    "128": "icons/icon128.svg"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "action": {
     "default_icon": {
-      "16": "icons/icon16.svg",
-      "48": "icons/icon48.svg"
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
     },
     "default_title": "Open Site Blocker"
   },
@@ -25,15 +25,14 @@
   "permissions": [
     "storage",
     "sidePanel",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequest"
   ],
   "host_permissions": [
     "<all_urls>"
   ],
   "web_accessible_resources": [
     {
-      "resources": ["blocked.html", "blocked.js", "icons/icon128.svg"],
+      "resources": ["blocked.html", "blocked.js", "icons/icon128.png"],
       "matches": ["<all_urls>"]
     }
   ]

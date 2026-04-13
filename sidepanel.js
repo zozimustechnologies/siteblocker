@@ -64,32 +64,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Render the blocked sites list
+  // Render the blocked sites list using safe DOM APIs
   function renderSitesList() {
-    sitesList.innerHTML = blockedSites.map(site => `
-      <li class="site-item ${!site.enabled ? 'disabled' : ''}" data-domain="${site.domain}">
-        <div class="site-info">
-          <span class="site-domain">${escapeHtml(site.domain)}</span>
-        </div>
-        <div class="site-actions">
-          <label class="toggle-switch site-toggle">
-            <input type="checkbox" ${site.enabled ? 'checked' : ''} data-action="toggle" data-domain="${site.domain}">
-            <span class="toggle-slider"></span>
-          </label>
-          <button class="btn-delete" data-action="delete" data-domain="${site.domain}" title="Remove site">
-            ×
-          </button>
-        </div>
-      </li>
-    `).join('');
+    sitesList.textContent = '';
 
-    // Add event listeners to dynamic elements
-    sitesList.querySelectorAll('[data-action="toggle"]').forEach(toggle => {
-      toggle.addEventListener('change', (e) => handleSiteToggle(e.target.dataset.domain, e.target.checked));
-    });
+    blockedSites.forEach(site => {
+      const li = document.createElement('li');
+      li.className = 'site-item' + (site.enabled ? '' : ' disabled');
+      li.dataset.domain = site.domain;
 
-    sitesList.querySelectorAll('[data-action="delete"]').forEach(btn => {
-      btn.addEventListener('click', (e) => handleDeleteSite(e.target.dataset.domain));
+      const info = document.createElement('div');
+      info.className = 'site-info';
+      const span = document.createElement('span');
+      span.className = 'site-domain';
+      span.textContent = site.domain;
+      info.appendChild(span);
+
+      const actions = document.createElement('div');
+      actions.className = 'site-actions';
+
+      const label = document.createElement('label');
+      label.className = 'toggle-switch site-toggle';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = site.enabled;
+      checkbox.addEventListener('change', () => handleSiteToggle(site.domain, checkbox.checked));
+      const slider = document.createElement('span');
+      slider.className = 'toggle-slider';
+      label.appendChild(checkbox);
+      label.appendChild(slider);
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'btn-delete';
+      deleteBtn.title = 'Remove site';
+      deleteBtn.textContent = '\u00d7';
+      deleteBtn.addEventListener('click', () => handleDeleteSite(site.domain));
+
+      actions.appendChild(label);
+      actions.appendChild(deleteBtn);
+
+      li.appendChild(info);
+      li.appendChild(actions);
+      sitesList.appendChild(li);
     });
   }
 
@@ -238,10 +254,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // Escape HTML to prevent XSS
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
 });

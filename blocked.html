@@ -13,7 +13,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #3d7ea6 0%, #1a4a6e 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -63,7 +63,7 @@
       display: inline-block;
       padding: 16px 40px;
       background: white;
-      color: #667eea;
+      color: #3d7ea6;
       text-decoration: none;
       border-radius: 50px;
       font-size: 18px;
@@ -83,15 +83,14 @@
     .dog-container {
       position: fixed;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 10px;
       z-index: 100;
       pointer-events: none;
     }
 
     /* Animated Dog */
     .dog {
-      width: 300px;
+      width: 100px;
       animation: dogPop 0.5s ease-out;
     }
 
@@ -100,112 +99,9 @@
       100% { transform: translateY(0); }
     }
 
-    /* Licking Tongue */
-    .tongue-container {
-      position: absolute;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
 
-    .tongue {
-      width: 80px;
-      height: 120px;
-      background: linear-gradient(180deg, #ff6b9d 0%, #ff4081 100%);
-      border-radius: 40px 40px 50px 50px;
-      animation: lick 0.8s ease-in-out infinite;
-      transform-origin: bottom center;
-    }
 
-    @keyframes lick {
-      0%, 100% { 
-        transform: scaleY(0.3) translateY(40px);
-        opacity: 0.8;
-      }
-      50% { 
-        transform: scaleY(1) translateY(0);
-        opacity: 1;
-      }
-    }
 
-    /* Drool drops */
-    .drool {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 50%;
-      animation: drip 2s ease-in infinite;
-    }
-
-    .drool:nth-child(1) {
-      left: 30%;
-      animation-delay: 0s;
-    }
-
-    .drool:nth-child(2) {
-      left: 50%;
-      animation-delay: 0.5s;
-    }
-
-    .drool:nth-child(3) {
-      left: 70%;
-      animation-delay: 1s;
-    }
-
-    @keyframes drip {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.6;
-      }
-      100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    /* Lick marks on screen */
-    .lick-marks {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .lick-mark {
-      position: absolute;
-      width: 150px;
-      height: 200px;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: fadeInOut 3s ease-in-out infinite;
-    }
-
-    .lick-mark:nth-child(1) {
-      top: 20%;
-      left: 30%;
-      animation-delay: 0s;
-    }
-
-    .lick-mark:nth-child(2) {
-      top: 40%;
-      left: 60%;
-      animation-delay: 1s;
-    }
-
-    .lick-mark:nth-child(3) {
-      top: 60%;
-      left: 25%;
-      animation-delay: 2s;
-    }
-
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
-    }
 
     /* Fun floating paw prints */
     .paw-prints {
@@ -259,13 +155,6 @@
     <div class="paw">🐾</div>
   </div>
 
-  <!-- Lick marks on screen -->
-  <div class="lick-marks">
-    <div class="lick-mark"></div>
-    <div class="lick-mark"></div>
-    <div class="lick-mark"></div>
-  </div>
-
   <!-- Main content -->
   <div class="container">
     <div class="block-icon">🚫</div>
@@ -282,13 +171,6 @@
 
   <!-- Dog licking the screen -->
   <div class="dog-container">
-    <div class="tongue-container">
-      <div class="tongue"></div>
-      <div class="drool"></div>
-      <div class="drool"></div>
-      <div class="drool"></div>
-    </div>
-    
     <!-- SVG Dog Face -->
     <svg class="dog" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
       <!-- Ears -->

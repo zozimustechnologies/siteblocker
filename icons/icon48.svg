@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
   <defs>
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea"/>
-      <stop offset="100%" style="stop-color:#764ba2"/>
+      <stop offset="0%" style="stop-color:#3d7ea6"/>
+      <stop offset="100%" style="stop-color:#1a4a6e"/>
     </linearGradient>
     <linearGradient id="stopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ef4444"/>
@@ -13,7 +13,7 @@
   <!-- Shield shape -->
   <path d="M24 3 L42 9 L42 21 C42 33 33 42 24 45 C15 42 6 33 6 21 L6 9 Z" 
         fill="url(#shieldGrad)" 
-        stroke="#5a67d8" 
+        stroke="#2b5a7e" 
         stroke-width="1.5"/>
   
   <!-- Stop circle -->

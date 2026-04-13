@@ -76,7 +76,6 @@ async function syncBlockingRules() {
 
     return { success: true, activeRules: newRules.length };
   } catch (error) {
-    console.error('Error syncing blocking rules:', error);
     return { success: false, error: error.message };
   }
 }
@@ -110,7 +109,6 @@ async function addBlockedSite(domain) {
 
     return { success: true, site: blockedSites[blockedSites.length - 1] };
   } catch (error) {
-    console.error('Error adding blocked site:', error);
     return { success: false, error: error.message };
   }
 }
@@ -128,7 +126,6 @@ async function removeBlockedSite(domain) {
 
     return { success: true };
   } catch (error) {
-    console.error('Error removing blocked site:', error);
     return { success: false, error: error.message };
   }
 }
@@ -149,7 +146,6 @@ async function toggleSite(domain, enabled) {
 
     return { success: false, error: 'Site not found' };
   } catch (error) {
-    console.error('Error toggling site:', error);
     return { success: false, error: error.message };
   }
 }
@@ -161,7 +157,6 @@ async function toggleMaster(enabled) {
     await syncBlockingRules();
     return { success: true };
   } catch (error) {
-    console.error('Error toggling master:', error);
     return { success: false, error: error.message };
   }
 }
@@ -176,7 +171,6 @@ async function getBlockedSites() {
       masterEnabled: result.masterEnabled !== false
     };
   } catch (error) {
-    console.error('Error getting blocked sites:', error);
     return { success: false, error: error.message };
   }
 }
@@ -208,17 +202,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Initialize rules on extension startup
 chrome.runtime.onStartup.addListener(() => {
-  console.log('Site Blocker: Extension startup - syncing rules');
   syncBlockingRules();
 });
 
 // Initialize rules on extension install/update
-chrome.runtime.onInstalled.addListener((details) => {
-  console.log('Site Blocker: Extension installed/updated - syncing rules', details.reason);
+chrome.runtime.onInstalled.addListener(() => {
   syncBlockingRules();
 });
 
 // Also sync immediately when service worker loads
-syncBlockingRules().then(result => {
-  console.log('Site Blocker: Initial sync complete', result);
-});
+syncBlockingRules();
