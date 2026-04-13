@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://wise.com/pay/r/wC7Us-4r3knkCCY">
+  <a href="https://wise.com/pay/business/sandeepchadda?utm_source=open_link">
     <img src="https://img.shields.io/badge/Donate-Wise-00B9FF?style=for-the-badge&logo=wise" alt="Donate via Wise">
   </a>
 </p>
