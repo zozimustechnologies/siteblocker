@@ -13,12 +13,19 @@
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
   <a href="#privacy">Privacy</a> •
-  <a href="#support">Support</a>
+  <a href="#support">Support</a> •
+  <a href="https://zozimustechnologies.github.io/siteblocker/docs/">Website</a>
 </p>
 
 <p align="center">
   <a href="https://wise.com/pay/business/sandeepchadda?utm_source=open_link">
     <img src="https://img.shields.io/badge/Donate-Wise-00B9FF?style=for-the-badge&logo=wise" alt="Donate via Wise">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://zozimustechnologies.github.io/siteblocker/docs/">
+    <img src="https://img.shields.io/badge/Website-GitHub%20Pages-222?style=for-the-badge&logo=github" alt="Website">
   </a>
 </p>
 

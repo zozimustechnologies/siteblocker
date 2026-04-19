@@ -61,6 +61,10 @@ Whether you're a parent keeping your kids safe online, a student staying focused
 
 No subscriptions. No premium tiers. No hidden costs. Every feature is available to everyone.
 
+## Learn More
+
+Visit our website for more details, screenshots, and installation instructions: [Site Blocker on GitHub Pages](https://zozimustechnologies.github.io/siteblocker/docs/)
+
 ---
 
 © Zozimus Technologies
